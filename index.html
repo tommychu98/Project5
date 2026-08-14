@@ -2,832 +2,1273 @@
 <html lang="ko">
     <head>
         <meta charset="UTF-8" />
+        <script>
+            (() => {
+                const root = document.documentElement;
+                const revealHistoryOnError = () => root.classList.add('history-motion-fallback');
+
+                root.classList.add('js');
+                window.addEventListener('error', revealHistoryOnError, { once: true });
+                window.addEventListener('unhandledrejection', revealHistoryOnError, { once: true });
+            })();
+        </script>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Knot</title>
-        <link rel="icon" href="images/logo-knot.svg" type="image/svg+xml" />
+        <meta name="theme-color" content="#0b0b0d" />
+        <title>T1</title>
+        <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+        <link rel="preload" as="image" href="images/opening-gaming-room.png" />
+        <link rel="preload" as="image" href="images/t1-brand-mark.png" />
+        <link rel="preload" as="image" href="images/hero-background.png" />
+        <link rel="preload" as="image" href="images/hero-wordmark-t.svg" />
+        <link rel="preload" as="image" href="images/hero-wordmark-1.svg" />
         <link rel="stylesheet" href="css/reset.css" />
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@14.0.6/swiper-bundle.min.css" />
         <link rel="stylesheet" href="css/main.css" />
+        <script src="js/main.js" defer></script>
     </head>
     <body>
         <p id="skipNav"><a href="#content">본문 바로가기</a></p>
 
         <div id="wrap">
-            <header id="header" class="header">
-                <div class="inner header__inner">
-                    <div class="header__main">
-                        <button type="button" class="header__menu-button">
-                            <img
-                                class="header__menu-icon"
-                                src="images/icon-menu.svg"
-                                alt=""
-                                width="13"
-                                height="12"
-                            />
-                            <span>MENU</span>
-                        </button>
-
-                        <h1 class="header__logo">
-                            <a href="index.html" class="header__logo-link" aria-label="Knot 홈">
-                                <img
-                                    class="header__logo-symbol"
-                                    src="images/logo-knot.svg"
-                                    alt="Knot"
-                                    width="65"
-                                    height="47"
-                                />
-                                <img
-                                    class="header__logo-wordmark"
-                                    src="images/logo-wordmark.svg"
-                                    alt=""
-                                    width="30"
-                                    height="8"
-                                />
-                            </a>
-                        </h1>
-                    </div>
-
-                    <nav class="header__nav" aria-label="회원 메뉴">
-                        <ul class="header__utility-list">
-                            <li class="header__utility-item"><a href="#">로그인</a></li>
-                            <li class="header__utility-item"><a href="#">회원가입</a></li>
-                            <li class="header__utility-item"><a href="#">예약확인</a></li>
-                            <li class="header__utility-item">
-                                <button type="button" class="header__language-button" aria-label="언어 선택">
-                                    <img src="images/icon-language.svg" alt="" width="24" height="24" />
-                                </button>
-                            </li>
-                        </ul>
-                    </nav>
-                </div>
-            </header>
-
-            <nav id="nav" class="nav" aria-label="주요 메뉴">
-                <div class="inner nav__inner">
-                    <ul class="nav__list">
-                        <li class="nav__item">
-                            <a href="#" class="nav__link">
-                                <span class="nav__icon nav__icon--domestic">
-                                    <img
-                                        class="nav__icon-image nav__icon-image--default"
-                                        src="images/nav-domestic.svg"
-                                        alt=""
-                                        width="37"
-                                        height="49"
-                                    />
-                                    <img
-                                        class="nav__icon-image nav__icon-image--active"
-                                        src="images/nav-domestic-active.svg"
-                                        alt=""
-                                        width="37"
-                                        height="49"
-                                    />
-                                </span>
-                                <span class="nav__label">국내여행</span>
-                            </a>
-                        </li>
-                        <li class="nav__divider-item" aria-hidden="true">
-                            <img class="nav__divider" src="images/nav-divider.svg" alt="" width="55" height="1" />
-                        </li>
-                        <li class="nav__item nav__item--overseas">
-                            <a href="#" class="nav__link">
-                                <span class="nav__icon nav__icon--overseas">
-                                    <img
-                                        class="nav__icon-image nav__icon-image--default"
-                                        src="images/nav-overseas.svg"
-                                        alt=""
-                                        width="43"
-                                        height="49"
-                                    />
-                                    <img
-                                        class="nav__icon-image nav__icon-image--active"
-                                        src="images/nav-overseas-active.svg"
-                                        alt=""
-                                        width="43"
-                                        height="49"
-                                    />
-                                </span>
-                                <span class="nav__label">해외여행</span>
-                            </a>
-                        </li>
-                        <li class="nav__divider-item" aria-hidden="true">
-                            <img class="nav__divider" src="images/nav-divider.svg" alt="" width="55" height="1" />
-                        </li>
-                        <li class="nav__item">
-                            <a href="#" class="nav__link active" aria-current="true">
-                                <span class="nav__icon nav__icon--event">
-                                    <img
-                                        class="nav__icon-image nav__icon-image--default"
-                                        src="images/nav-event-inactive.svg"
-                                        alt=""
-                                        width="65"
-                                        height="41"
-                                    />
-                                    <img
-                                        class="nav__icon-image nav__icon-image--active"
-                                        src="images/nav-event.svg"
-                                        alt=""
-                                        width="65"
-                                        height="41"
-                                    />
-                                </span>
-                                <span class="nav__label">자전거행사</span>
-                            </a>
-                        </li>
-                        <li class="nav__divider-item" aria-hidden="true">
-                            <img class="nav__divider" src="images/nav-divider.svg" alt="" width="55" height="1" />
-                        </li>
-                        <li class="nav__item">
-                            <a href="#" class="nav__link">
-                                <span class="nav__icon nav__icon--community">
-                                    <img
-                                        class="nav__icon-image nav__icon-image--default"
-                                        src="images/nav-community.svg"
-                                        alt=""
-                                        width="51"
-                                        height="47"
-                                    />
-                                    <img
-                                        class="nav__icon-image nav__icon-image--active"
-                                        src="images/nav-community-active.svg"
-                                        alt=""
-                                        width="51"
-                                        height="47"
-                                    />
-                                </span>
-                                <span class="nav__label">커뮤니티</span>
-                            </a>
-                        </li>
-                        <li class="nav__divider-item" aria-hidden="true">
-                            <img class="nav__divider" src="images/nav-divider.svg" alt="" width="55" height="1" />
-                        </li>
-                        <li class="nav__item">
-                            <a href="#" class="nav__link">
-                                <span class="nav__icon nav__icon--strider">
-                                    <img
-                                        class="nav__icon-image nav__icon-image--default"
-                                        src="images/nav-strider.svg"
-                                        alt=""
-                                        width="50"
-                                        height="52"
-                                    />
-                                    <img
-                                        class="nav__icon-image nav__icon-image--active"
-                                        src="images/nav-strider-active.svg"
-                                        alt=""
-                                        width="50"
-                                        height="52"
-                                    />
-                                </span>
-                                <span class="nav__label">스트라이더</span>
-                            </a>
-                        </li>
-                        <li class="nav__divider-item" aria-hidden="true">
-                            <img class="nav__divider" src="images/nav-divider.svg" alt="" width="55" height="1" />
-                        </li>
-                        <li class="nav__item">
-                            <a href="#" class="nav__link">
-                                <span class="nav__icon nav__icon--store">
-                                    <img
-                                        class="nav__icon-image nav__icon-image--default"
-                                        src="images/nav-store.svg"
-                                        alt=""
-                                        width="42"
-                                        height="42"
-                                    />
-                                    <img
-                                        class="nav__icon-image nav__icon-image--active"
-                                        src="images/nav-store-active.svg"
-                                        alt=""
-                                        width="42"
-                                        height="42"
-                                    />
-                                </span>
-                                <span class="nav__label">스토어</span>
-                            </a>
-                        </li>
-                        <li class="nav__divider-item" aria-hidden="true">
-                            <img class="nav__divider" src="images/nav-divider.svg" alt="" width="55" height="1" />
-                        </li>
-                        <li class="nav__item">
-                            <a href="#" class="nav__link">
-                                <span class="nav__icon nav__icon--faq">
-                                    <img
-                                        class="nav__icon-image nav__icon-image--default"
-                                        src="images/nav-faq.svg"
-                                        alt=""
-                                        width="49"
-                                        height="44"
-                                    />
-                                    <img
-                                        class="nav__icon-image nav__icon-image--active"
-                                        src="images/nav-faq-active.svg"
-                                        alt=""
-                                        width="49"
-                                        height="44"
-                                    />
-                                </span>
-                                <span class="nav__label">자주묻는질문</span>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
-
             <main id="content" class="main">
-                <section id="hero" class="hero con1 swiper hero-swiper" aria-labelledby="hero-title">
-                    <div class="swiper-wrapper hero__slides">
-                        <div class="swiper-slide hero__slide">
+                <section
+                    class="intro-sequence opening-hero-transition"
+                    aria-labelledby="intro-sequence-title"
+                    data-intro-sequence
+                    data-scroll-page="hero"
+                    data-state="loading"
+                    data-node-id="89:136"
+                >
+                    <h2 id="intro-sequence-title" class="sr-only">T1 Opening</h2>
+                    <p class="sr-only" role="status" aria-live="polite" data-loading-status>
+                        T1 사이트를 불러오는 중입니다.
+                    </p>
+
+                    <div
+                        class="intro-sequence__background intro-sequence__background--loading"
+                        aria-hidden="true"
+                    ></div>
+
+                    <div class="opening-camera-layer" data-opening-camera-layer>
+                        <div
+                            class="intro-sequence__background intro-sequence__background--opening"
+                            data-node-id="69:275"
+                            aria-hidden="true"
+                        >
                             <img
-                                class="hero__background"
-                                src="images/hero-background.png"
-                                alt="산악 자전거 여행 중 하이파이브를 하는 두 사람"
+                                src="images/opening-gaming-room.png"
+                                alt=""
                                 width="1920"
-                                height="848"
+                                height="1080"
+                                fetchpriority="high"
+                                data-opening-image
+                                data-intro-asset
                             />
                         </div>
-                        <div class="swiper-slide hero__slide">
-                            <img
-                                class="hero__background"
-                                src="images/hero-2.png"
-                                alt="노을 아래 자전거와 함께 선 사람들"
-                                width="1920"
-                                height="848"
-                            />
-                        </div>
-                        <div class="swiper-slide hero__slide">
-                            <img
-                                class="hero__background"
-                                src="images/hero-3.png"
-                                alt="바다와 화강암 바위가 펼쳐진 해안 풍경"
-                                width="1920"
-                                height="848"
-                            />
-                        </div>
-                        <div class="swiper-slide hero__slide">
-                            <img
-                                class="hero__background"
-                                src="images/hero-4.png"
-                                alt="산 정상에서 자전거와 함께한 어린이들"
-                                width="1920"
-                                height="848"
-                            />
-                        </div>
-                    </div>
 
-                    <div class="inner hero__inner">
-                        <div class="hero__content">
-                            <div class="hero__copy">
-                                <p class="hero__eyebrow">Representative Bicycle Content Specializing Company</p>
-                                <div class="hero__message">
-                                    <h2 id="hero-title" class="hero__title">
-                                        <span>Make People Happy,</span>
-                                        <span>Keep The Earth Healthy</span>
-                                    </h2>
-                                    <p class="hero__description">
-                                        케이벨로는 사람을 행복하게 지구를 건강하게 만드는
-                                        <strong>자전거 컨텐츠 전문기업 입니다.</strong>
-                                    </p>
-                                </div>
-                            </div>
-
-                            <div class="hero__pagination swiper-pagination" aria-label="슬라이드 위치"></div>
-                        </div>
-                    </div>
-
-                    <button type="button" class="hero__control hero__control--prev" aria-label="이전 슬라이드">
-                        <img src="images/hero-prev.svg" alt="" width="57" height="57" />
-                    </button>
-                    <button type="button" class="hero__control hero__control--next" aria-label="다음 슬라이드">
-                        <img src="images/hero-next.svg" alt="" width="57" height="57" />
-                    </button>
-
-                    <a href="#wrap" class="hero__top-link">
-                        <img src="images/icon-top.svg" alt="" width="13" height="22" />
-                        <span>TOP</span>
-                    </a>
-                </section>
-
-                <section class="banner-marquee banner-marquee--primary" aria-labelledby="banner-marquee-title">
-                    <h2 id="banner-marquee-title" class="banner-marquee__title">즐거운 자전거 여행</h2>
-                    <div class="banner-marquee__viewport">
-                        <ul class="banner-marquee__track">
-                            <li class="banner-marquee__item">
+                        <div
+                            class="persistent-brand-mark opening-brand-mark-camera"
+                            data-persistent-brand-mark
+                            data-opening-brand-mark
+                            data-node-id="172:190"
+                        >
+                            <div
+                                class="persistent-brand-mark__stars"
+                                data-node-id="172:191"
+                                aria-hidden="true"
+                            >
                                 <img
-                                    src="images/banner-marquee.png"
-                                    alt="Bicycle Travel, 즐거운 자전거 여행"
-                                    width="1920"
-                                    height="280"
+                                    class="persistent-brand-mark__star"
+                                    src="images/t1-star-01.svg"
+                                    alt=""
+                                    width="19"
+                                    height="19"
+                                    data-star
+                                    data-intro-asset
+                                    data-star-index="0"
+                                    data-node-id="172:181"
                                 />
-                            </li>
-                            <li class="banner-marquee__item" aria-hidden="true">
-                                <img src="images/banner-marquee.png" alt="" width="1920" height="280" />
-                            </li>
-                        </ul>
-                    </div>
-                </section>
-
-                <section class="travel-section" aria-labelledby="travel-title" data-con1-motion="true">
-                    <div class="inner travel-section__inner">
-                        <div class="travel-section__intro">
-                            <h2 id="travel-title" class="travel-section__title con1-reveal-title">여행</h2>
-                            <p class="travel-section__description con1-reveal-description">
-                                <span>자연을 존중하고 사람과 문화를 존중하는 여행,</span>
-                                <span>케이벨로와 함께 여러분만의 방식으로 세상을 발견해 보세요.</span>
-                            </p>
-                        </div>
-
-                        <div class="travel-section__content">
-                            <div class="travel-section__header con1-reveal-header">
-                                <h3>국내/해외여행</h3>
-                                <button type="button" class="travel-section__more">
-                                    <img src="images/icon-view-more.svg" alt="" width="20" height="11" />
-                                    <span>VIEW MORE</span>
-                                </button>
+                                <img
+                                    class="persistent-brand-mark__star"
+                                    src="images/t1-star-02.svg"
+                                    alt=""
+                                    width="19"
+                                    height="19"
+                                    data-star
+                                    data-intro-asset
+                                    data-star-index="1"
+                                    data-node-id="172:183"
+                                />
+                                <img
+                                    class="persistent-brand-mark__star"
+                                    src="images/t1-star-03.svg"
+                                    alt=""
+                                    width="19"
+                                    height="19"
+                                    data-star
+                                    data-intro-asset
+                                    data-star-index="2"
+                                    data-node-id="172:184"
+                                />
+                                <img
+                                    class="persistent-brand-mark__star"
+                                    src="images/t1-star-04.svg"
+                                    alt=""
+                                    width="19"
+                                    height="19"
+                                    data-star
+                                    data-intro-asset
+                                    data-star-index="3"
+                                    data-node-id="172:185"
+                                />
+                                <img
+                                    class="persistent-brand-mark__star"
+                                    src="images/t1-star-05.svg"
+                                    alt=""
+                                    width="19"
+                                    height="19"
+                                    data-star
+                                    data-intro-asset
+                                    data-star-index="4"
+                                    data-node-id="172:186"
+                                />
+                                <img
+                                    class="persistent-brand-mark__star"
+                                    src="images/t1-star-06.svg"
+                                    alt=""
+                                    width="19"
+                                    height="19"
+                                    data-star
+                                    data-intro-asset
+                                    data-star-index="5"
+                                    data-node-id="172:187"
+                                />
                             </div>
 
-                            <ul class="travel-section__list">
-                                <li class="travel-section__list-item con1-reveal-card">
-                                    <article class="travel-card">
-                                        <div class="travel-card__image-wrap">
-                                            <img
-                                                class="travel-card__image travel-card__image--hongkong"
-                                                src="images/travel-hongkong.jpg"
-                                                alt="홍콩 시내의 도로와 트램"
-                                                width="335"
-                                                height="596"
-                                            />
-                                            <span class="travel-card__tag travel-card__tag--overseas">해외</span>
-                                        </div>
-                                        <div class="travel-card__content">
-                                            <div class="travel-card__info">
-                                                <h4>2026 홍콩 사이클로톤</h4>
-                                                <p class="travel-card__date">2026.10.11 ~ 2026.10.13</p>
-                                            </div>
-                                            <p class="travel-card__price"><strong>1,800,000</strong><span>원</span></p>
-                                        </div>
-                                    </article>
-                                </li>
-
-                                <li class="travel-section__list-item con1-reveal-card">
-                                    <article class="travel-card">
-                                        <div class="travel-card__image-wrap">
-                                            <img
-                                                class="travel-card__image travel-card__image--theme"
-                                                src="images/travel-theme-tour.jpg"
-                                                alt="도로를 달리는 자전거와 라이더"
-                                                width="335"
-                                                height="503"
-                                            />
-                                            <span class="travel-card__tag">국내</span>
-                                        </div>
-                                        <div class="travel-card__content">
-                                            <div class="travel-card__info">
-                                                <h4>2026 테마관광 박람회 자전거 팸투어</h4>
-                                                <p class="travel-card__date">2026.06.05 ~ 2026.06.07</p>
-                                            </div>
-                                            <p class="travel-card__price"><strong>가격미정</strong></p>
-                                        </div>
-                                    </article>
-                                </li>
-
-                                <li class="travel-section__list-item con1-reveal-card">
-                                    <article class="travel-card">
-                                        <div class="travel-card__image-wrap">
-                                            <img
-                                                class="travel-card__image travel-card__image--yangyang"
-                                                src="images/travel-yangyang.jpg"
-                                                alt="바위와 맑은 바다가 펼쳐진 해안"
-                                                width="335"
-                                                height="446"
-                                            />
-                                            <span class="travel-card__tag">국내</span>
-                                        </div>
-                                        <div class="travel-card__content">
-                                            <div class="travel-card__info">
-                                                <h4>2026 양양 쏠비치 스트라이더컵</h4>
-                                                <p class="travel-card__date">2026.05.04 ~ 2026.05.05</p>
-                                            </div>
-                                            <p class="travel-card__price"><strong>100,000</strong><span>원</span></p>
-                                        </div>
-                                    </article>
-                                </li>
-
-                                <li class="travel-section__list-item con1-reveal-card">
-                                    <article class="travel-card">
-                                        <div class="travel-card__image-wrap">
-                                            <img
-                                                class="travel-card__image travel-card__image--gwangnaru"
-                                                src="images/travel-gwangnaru.jpg"
-                                                alt="노을이 진 강변 자전거 도로를 달리는 사람들"
-                                                width="335"
-                                                height="418"
-                                            />
-                                            <span class="travel-card__tag">국내</span>
-                                        </div>
-                                        <div class="travel-card__content">
-                                            <div class="travel-card__info">
-                                                <h4>광나루 자전거 교실 주말가족교육</h4>
-                                                <p class="travel-card__date">2026.04.20 ~ 2026.04.20</p>
-                                            </div>
-                                            <p class="travel-card__price"><strong>무료</strong></p>
-                                        </div>
-                                    </article>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </section>
-
-                <section class="travel-section event-section" aria-labelledby="event-title" data-con1-motion="true">
-                    <div class="inner travel-section__inner">
-                        <div class="travel-section__intro">
-                            <h2 id="event-title" class="travel-section__title con1-reveal-title">자전거행사</h2>
-                            <p class="travel-section__description con1-reveal-description">
-                                <span>전국 각지에서 열리는 다양한 라이딩 이벤트와 국토종주,</span>
-                                <span>테마별 라이딩 등 모든 수준의 라이더를 위한 행사를 준비하고 있습니다.</span>
-                            </p>
-                        </div>
-
-                        <div class="travel-section__content">
-                            <div class="travel-section__header con1-reveal-header">
-                                <h3>전국 자전거 행사</h3>
-                                <button type="button" class="travel-section__more">
-                                    <img src="images/icon-view-more.svg" alt="" width="20" height="11" />
-                                    <span>VIEW MORE</span>
-                                </button>
-                            </div>
-
-                            <ul class="travel-section__list">
-                                <li class="travel-section__list-item con1-reveal-card">
-                                    <article class="travel-card">
-                                        <div class="travel-card__image-wrap">
-                                            <img
-                                                class="travel-card__image travel-card__image--event-innobiz"
-                                                src="images/event-innobiz.jpg"
-                                                alt="도로를 함께 달리는 자전거 참가자들"
-                                                width="335"
-                                                height="446"
-                                            />
-                                            <span class="travel-card__tag travel-card__tag--gangwon">강원</span>
-                                        </div>
-                                        <div class="travel-card__content">
-                                            <div class="travel-card__info">
-                                                <h4>2026 이노비즈 자전거 행사 및 야유회</h4>
-                                                <p class="travel-card__date">2026.10.11 ~ 2026.10.13</p>
-                                            </div>
-                                            <p class="travel-card__price"><strong>170,000</strong><span>원</span></p>
-                                        </div>
-                                    </article>
-                                </li>
-
-                                <li class="travel-section__list-item con1-reveal-card">
-                                    <article class="travel-card">
-                                        <div class="travel-card__image-wrap">
-                                            <img
-                                                class="travel-card__image travel-card__image--event-gyeongnam"
-                                                src="images/event-patriot-gyeongnam.jpg"
-                                                alt="꽃길을 달리는 자전거 참가자들"
-                                                width="335"
-                                                height="503"
-                                            />
-                                            <span class="travel-card__tag travel-card__tag--gyeongnam">경남</span>
-                                        </div>
-                                        <div class="travel-card__content">
-                                            <div class="travel-card__info">
-                                                <h4>2026 문체부 호국보훈 행사</h4>
-                                                <p class="travel-card__date">2026.06.05 ~ 2026.06.07</p>
-                                            </div>
-                                            <p class="travel-card__price"><strong>무료</strong></p>
-                                        </div>
-                                    </article>
-                                </li>
-
-                                <li class="travel-section__list-item con1-reveal-card">
-                                    <article class="travel-card">
-                                        <div class="travel-card__image-wrap">
-                                            <img
-                                                class="travel-card__image travel-card__image--event-seoul"
-                                                src="images/event-theme-seoul.jpg"
-                                                alt="햇살 아래 도로를 달리는 자전거 라이더들"
-                                                width="335"
-                                                height="503"
-                                            />
-                                            <span class="travel-card__tag travel-card__tag--seoul">서울</span>
-                                        </div>
-                                        <div class="travel-card__content">
-                                            <div class="travel-card__info">
-                                                <h4>2026 테마관광 박람회</h4>
-                                                <p class="travel-card__date">2026.05.04 ~ 2026.05.05</p>
-                                            </div>
-                                            <p class="travel-card__price"><strong>50,000</strong><span>원</span></p>
-                                        </div>
-                                    </article>
-                                </li>
-
-                                <li class="travel-section__list-item con1-reveal-card">
-                                    <article class="travel-card">
-                                        <div class="travel-card__image-wrap">
-                                            <img
-                                                class="travel-card__image travel-card__image--event-chungcheong"
-                                                src="images/event-patriot-chungcheong.jpg"
-                                                alt="가로수가 있는 자전거 도로를 달리는 라이더들"
-                                                width="335"
-                                                height="538"
-                                            />
-                                            <span class="travel-card__tag travel-card__tag--chungcheong">충청</span>
-                                        </div>
-                                        <div class="travel-card__content">
-                                            <div class="travel-card__info">
-                                                <h4>2026 문체부 호국보훈 행사</h4>
-                                                <p class="travel-card__date">2026.04.20 ~ 2026.04.20</p>
-                                            </div>
-                                            <p class="travel-card__price"><strong>무료</strong></p>
-                                        </div>
-                                    </article>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </section>
-
-                <section class="hero2-section" aria-labelledby="hero2-title" data-con1-motion="true">
-                    <div class="hero2-section__visual">
-                        <img
-                            class="hero2-section__background"
-                            src="images/hero2-background.png"
-                            alt="해안 절벽 사이에서 자전거를 타는 라이더"
-                            width="4096"
-                            height="2545"
-                        />
-                        <span class="hero2-section__overlay" aria-hidden="true"></span>
-                    </div>
-
-                    <div class="inner hero2-section__inner">
-                        <div class="hero2-section__copy">
-                            <h2 id="hero2-title" class="hero2-section__title con1-reveal-title">
-                                <span><strong>자전거 여행의 꿈을 실현</strong>하는 곳.</span>
-                                <span><strong>모험을 더욱 특별하게</strong> 만들어 드리는 곳.</span>
-                            </h2>
-                            <p class="hero2-section__description con1-reveal-description">이 곳은 케이벨로입니다.</p>
-                        </div>
-
-                        <button type="button" class="hero2-section__more con1-reveal-header">
-                            <img src="images/icon-view-more.svg" alt="" width="20" height="11" />
-                            <span>VIEW MORE</span>
-                        </button>
-                    </div>
-                </section>
-
-                <section class="con3-section" aria-labelledby="con3-title" data-con3-motion="true">
-                    <div class="inner con3-section__inner">
-                        <div class="con3-section__intro" data-con3-intro>
-                            <h2 id="con3-title" class="con3-section__title con3-reveal-title">
-                                <span>라이더들의</span>
-                                <span>이용후기</span>
-                            </h2>
-                            <p class="con3-section__description con3-reveal-description">
-                                <span>케이벨로와 함께한 자전거 여행의 감동을</span>
-                                <span>직접 확인해보세요.</span>
-                            </p>
-                            <button type="button" class="con3-section__more con3-reveal-more">
-                                <img src="images/icon-con3-view-more.svg" alt="" width="20" height="11" />
-                                <span>VIEW MORE</span>
+                            <button
+                                class="persistent-brand-mark__logo opening-logo-button"
+                                type="button"
+                                aria-label="Enter T1 experience"
+                                aria-disabled="true"
+                                data-opening-logo-button
+                                data-node-id="172:198"
+                                disabled
+                            >
+                                <span
+                                    class="opening-logo-visual"
+                                    data-opening-logo-visual
+                                    aria-hidden="true"
+                                >
+                                    <img
+                                        class="persistent-brand-mark__logo-preload"
+                                        src="images/t1-brand-mark.png"
+                                        alt=""
+                                        width="300"
+                                        height="150"
+                                        data-intro-asset
+                                    />
+                                    <span
+                                        class="persistent-brand-mark__logo-layer persistent-brand-mark__logo-layer--glow-wide"
+                                        data-logo-glow-wide
+                                    ></span>
+                                    <span
+                                        class="persistent-brand-mark__logo-layer persistent-brand-mark__logo-layer--glow-close"
+                                        data-logo-glow-close
+                                    ></span>
+                                    <span
+                                        class="persistent-brand-mark__logo-layer persistent-brand-mark__logo-layer--base"
+                                        data-logo-base
+                                    ></span>
+                                </span>
                             </button>
                         </div>
+                    </div>
 
-                        <div class="con3-section__grid">
-                            <ul class="con3-section__column con3-section__column--left" data-con3-column="left">
-                                <li class="con3-review-item" data-con3-card>
-                                    <article class="review-card review-card--white">
-                                        <div class="review-card__media">
-                                            <img class="review-card__image review-card__image--01" src="images/review-01.jpg" alt="산 정상에서 자전거와 함께 풍경을 바라보는 라이더들" width="469" height="580" />
-                                        </div>
-                                        <div class="review-card__content">
-                                            <p class="review-card__text">케이벨로의 홍콩 라이딩 투어를 다녀왔습니다. 너무 만족스러운 프로그램과 즐거운 여행을...</p>
-                                            <p class="review-card__author">홍*길</p>
-                                        </div>
-                                    </article>
-                                </li>
-                                <li class="con3-review-item" data-con3-card>
-                                    <article class="review-card review-card--blue">
-                                        <div class="review-card__media">
-                                            <img class="review-card__image review-card__image--02" src="images/review-02.jpg" alt="산악 자전거를 세워두고 기념 촬영하는 라이더들" width="469" height="580" />
-                                        </div>
-                                        <div class="review-card__content">
-                                            <p class="review-card__text">케이벨로의 홍콩 라이딩 투어를 다녀왔습니다. 너무 만족스러운 프로그램과 즐거운 여행을...</p>
-                                            <p class="review-card__author">홍*길</p>
-                                        </div>
-                                    </article>
-                                </li>
-                                <li class="con3-review-item" data-con3-card>
-                                    <article class="review-card review-card--blue">
-                                        <div class="review-card__media">
-                                            <img class="review-card__image review-card__image--03" src="images/review-03.jpg" alt="자전거 여행 중 길가에서 쉬고 있는 라이더" width="469" height="580" />
-                                        </div>
-                                        <div class="review-card__content">
-                                            <p class="review-card__text">케이벨로의 홍콩 라이딩 투어를 다녀왔습니다. 너무 만족스러운 프로그램과 즐거운 여행을...</p>
-                                            <p class="review-card__author">홍*길</p>
-                                        </div>
-                                    </article>
-                                </li>
-                                <li class="con3-review-item" data-con3-card>
-                                    <article class="review-card review-card--white">
-                                        <div class="review-card__media">
-                                            <img class="review-card__image review-card__image--04" src="images/review-04.jpg" alt="여행지의 자연 속에서 자전거를 타는 라이더들" width="469" height="580" />
-                                        </div>
-                                        <div class="review-card__content">
-                                            <p class="review-card__text">케이벨로의 홍콩 라이딩 투어를 다녀왔습니다. 너무 만족스러운 프로그램과 즐거운 여행을...</p>
-                                            <p class="review-card__author">홍*길</p>
-                                        </div>
-                                    </article>
-                                </li>
-                            </ul>
+                    <section
+                        id="hero"
+                        class="section-hero hero-layer"
+                        aria-labelledby="hero-title"
+                        aria-hidden="true"
+                        inert
+                        tabindex="-1"
+                        data-hero-layer
+                        data-hero-state="waiting"
+                        data-node-id="69:156"
+                    >
+                        <div class="section-hero__stage" data-hero-stage>
+                        <div class="section-hero__background" aria-hidden="true">
+                            <img
+                                src="images/hero-background.png"
+                                alt=""
+                                width="1920"
+                                height="1080"
+                                data-hero-asset
+                            />
+                        </div>
 
-                            <ul class="con3-section__column con3-section__column--right" data-con3-column="right">
-                                <li class="con3-review-item" data-con3-card>
-                                    <article class="review-card review-card--blue">
-                                        <div class="review-card__media">
-                                            <img class="review-card__image review-card__image--05" src="images/review-05.jpg" alt="잔디 위에서 자전거 여행을 즐기는 라이더들" width="469" height="580" />
-                                        </div>
-                                        <div class="review-card__content">
-                                            <p class="review-card__text">케이벨로의 홍콩 라이딩 투어를 다녀왔습니다. 너무 만족스러운 프로그램과 즐거운 여행을...</p>
-                                            <p class="review-card__author">홍*길</p>
-                                        </div>
-                                    </article>
-                                </li>
-                                <li class="con3-review-item" data-con3-card>
-                                    <article class="review-card review-card--white">
-                                        <div class="review-card__media">
-                                            <img class="review-card__image review-card__image--06" src="images/review-06.jpg" alt="산악 풍경을 지나 자전거를 타는 라이더들" width="469" height="580" />
-                                        </div>
-                                        <div class="review-card__content">
-                                            <p class="review-card__text">케이벨로의 홍콩 라이딩 투어를 다녀왔습니다. 너무 만족스러운 프로그램과 즐거운 여행을...</p>
-                                            <p class="review-card__author">홍*길</p>
-                                        </div>
-                                    </article>
-                                </li>
-                                <li class="con3-review-item" data-con3-card>
-                                    <article class="review-card review-card--blue">
-                                        <div class="review-card__media">
-                                            <img class="review-card__image review-card__image--07" src="images/review-07.jpg" alt="도심의 테마 코스를 달리는 자전거 여행자들" width="469" height="580" />
-                                        </div>
-                                        <div class="review-card__content">
-                                            <p class="review-card__text">케이벨로의 홍콩 라이딩 투어를 다녀왔습니다. 너무 만족스러운 프로그램과 즐거운 여행을...</p>
-                                            <p class="review-card__author">홍*길</p>
-                                        </div>
-                                    </article>
-                                </li>
-                                <li class="con3-review-item" data-con3-card>
-                                    <article class="review-card review-card--white">
-                                        <div class="review-card__media">
-                                            <img class="review-card__image review-card__image--08" src="images/review-08.jpg" alt="자전거를 타고 여행지의 도로를 달리는 라이더" width="469" height="580" />
-                                        </div>
-                                        <div class="review-card__content">
-                                            <p class="review-card__text">케이벨로의 홍콩 라이딩 투어를 다녀왔습니다. 너무 만족스러운 프로그램과 즐거운 여행을...</p>
-                                            <p class="review-card__author">홍*길</p>
-                                        </div>
-                                    </article>
-                                </li>
-                            </ul>
+                        <div
+                            class="section-hero__wordmark"
+                            data-hero-wordmark
+                            data-node-id="69:162"
+                            aria-hidden="true"
+                        >
+                            <img
+                                class="section-hero__wordmark-t"
+                                src="images/hero-wordmark-t.svg"
+                                alt=""
+                                width="347"
+                                height="266"
+                                data-hero-asset
+                                data-node-id="69:163"
+                            />
+                            <img
+                                class="section-hero__wordmark-one"
+                                src="images/hero-wordmark-1.svg"
+                                alt=""
+                                width="295"
+                                height="268"
+                                data-hero-asset
+                                data-node-id="69:164"
+                            />
+                        </div>
+
+                        <p
+                            class="section-hero__credit section-hero__secondary"
+                            data-hero-secondary
+                            data-hero-credit
+                            data-node-id="69:165"
+                        >design  by  tommy.c</p>
+
+                        <h1 id="hero-title" class="section-hero__headline">
+                            <span class="section-hero__headline-lead" data-hero-headline-lead>
+                                <span data-node-id="69:166">inspire</span>
+                                <span data-node-id="69:167">the</span>
+                            </span>
+                            <span class="section-hero__headline-main">
+                                <span
+                                    class="section-hero__headline-line section-hero__headline-line--best-game"
+                                    data-hero-headline-main
+                                    data-node-id="69:168"
+                                    >best game</span
+                                >
+                                <span
+                                    class="section-hero__headline-line section-hero__headline-line--in-you"
+                                    data-hero-headline-main
+                                    data-node-id="69:169"
+                                    >in you.</span
+                                >
+                            </span>
+                        </h1>
+
+                        <p
+                            class="section-hero__statement section-hero__secondary"
+                            data-hero-secondary
+                            data-hero-introduction
+                            data-node-id="69:170"
+                        >
+                            <span
+                                class="section-hero__statement-line section-hero__statement-line--first"
+                                ><span class="section-hero__statement-leading-space"> </span
+                                ><span class="section-hero__statement-hash">#</span
+                                ><span class="section-hero__statement-gap"> </span
+                                ><span>legacy of raising trophies,</span></span
+                            >
+                            <span class="section-hero__statement-line"
+                                >inspired by our passion,
+                            </span>
+                            <span
+                                class="section-hero__statement-line section-hero__statement-line--muted"
+                                >for victory.</span
+                            >
+                            <span
+                                class="section-hero__statement-line section-hero__statement-line--blank"
+                                aria-hidden="true"
+                                >&#8203;</span
+                            >
+                            <span
+                                class="section-hero__statement-line section-hero__statement-line--accent"
+                                ><span class="section-hero__statement-hash">#</span
+                                ><span class="section-hero__statement-gap"> </span
+                                ><span>We are T1.</span></span
+                            >
+                        </p>
+
+                        <nav class="section-hero__actions" aria-label="T1 빠른 메뉴">
+                            <a
+                                class="section-hero__action section-hero__secondary"
+                                href="https://www.t1.gg/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                data-hero-secondary
+                                data-hero-action
+                                data-node-id="69:172"
+                                ><span>LINK TO T1.GG</span></a
+                            >
+                            <button
+                                class="section-hero__action section-hero__action--menu section-hero__secondary"
+                                type="button"
+                                data-hero-secondary
+                                data-hero-action
+                                data-node-id="69:171"
+                            >
+                                <span>MENU</span>
+                            </button>
+                        </nav>
+                        </div>
+                    </section>
+                </section>
+
+                <section
+                    id="history"
+                    class="section-history"
+                    aria-labelledby="history-title"
+                    data-history-section
+                    data-scroll-page="history"
+                    data-node-id="227:158"
+                >
+                    <div class="section-history__canvas" data-history-content>
+                        <h2 id="history-title" class="section-history__title" data-node-id="227:161">
+                            HISTORY
+                        </h2>
+
+                        <div
+                            class="history-cards"
+                            data-history-cards
+                            data-node-id="227:163"
+                        >
+                            <article
+                                class="history-card history-card--01"
+                                tabindex="0"
+                                aria-labelledby="history-card-title-01"
+                                data-history-card
+                                data-node-id="227:173"
+                            >
+                                <div class="history-card__media" data-node-id="227:164">
+                                    <div class="history-card__image-motion">
+                                        <img
+                                            src="images/history-card-01.png"
+                                            alt="SK텔레콤 T1 창단 멤버 단체 사진"
+                                            width="600"
+                                            height="699"
+                                            decoding="async"
+                                        />
+                                    </div>
+                                </div>
+                                <div class="history-card__gradient" aria-hidden="true"></div>
+                                <div class="history-card__entry history-card__entry--01" data-node-id="220:152">
+                                    <h3 id="history-card-title-01" data-node-id="220:153">
+                                        <span>THE BEGINNING:</span>
+                                        <span>SKT T1</span>
+                                    </h3>
+                                    <p data-node-id="220:154">
+                                        대한민국 이스포츠의 여명기였던 2004년,<br />
+                                        SK텔레콤 T1이라는 위대한 날갯짓이 시작되었습니다. 대기업의 전폭적인 주도 아래 탄생한 구단은 체계적인 시스템과 압도적인 지원을 바탕으로 판도를 뒤흔들었습니다. 단순한 게임단을 넘어 대한민국 프로 스포츠의 새로운 패러다임을 제시하며, 20년 왕조를 향한 거대한 서막을 올렸습니다.
+                                    </p>
+                                </div>
+                            </article>
+
+                            <article
+                                class="history-card history-card--02"
+                                tabindex="0"
+                                aria-labelledby="history-card-title-02"
+                                data-history-card
+                                data-node-id="227:174"
+                            >
+                                <div class="history-card__media" data-node-id="227:165">
+                                    <div class="history-card__image-motion">
+                                        <img
+                                            src="images/history-card-02.png"
+                                            alt="SK텔레콤 T1 유니폼을 입은 임요환 선수"
+                                            width="600"
+                                            height="900"
+                                            loading="lazy"
+                                            decoding="async"
+                                        />
+                                    </div>
+                                </div>
+                                <div class="history-card__gradient" aria-hidden="true"></div>
+                                <div class="history-card__entry history-card__entry--02" data-node-id="220:156">
+                                    <h3 id="history-card-title-02" data-node-id="220:157">
+                                        <span>THE ICON:</span>
+                                        <span>BOXER</span>
+                                    </h3>
+                                    <p data-node-id="220:158">
+                                        ‘황제’ 임요환(BoxeR)의 등장은 스타크래프트 신드롬을 넘어 이스포츠를 하나의 거대한 주류 문화로 격상시켰습니다. 그의 천재적인 플레이와 압도적인 스타성은 수백만 팬덤을 광장과 경기장으로 결집시키는 기폭제가 되었습니다. 한 명의 영웅이 만든 폭발적인 흥행은 T1이라는 브랜드를 지울 수 없는<br />
+                                        시대의 아이콘으로<br />
+                                        각인시켰습니다.
+                                    </p>
+                                </div>
+                            </article>
+
+                            <article
+                                class="history-card history-card--03"
+                                tabindex="0"
+                                aria-labelledby="history-card-title-03"
+                                data-history-card
+                                data-node-id="227:175"
+                            >
+                                <div class="history-card__media" data-node-id="227:166">
+                                    <div class="history-card__image-motion">
+                                        <img
+                                            src="images/history-card-03.png"
+                                            alt="월드 챔피언십 트로피 앞의 페이커 선수"
+                                            width="1037"
+                                            height="763"
+                                            loading="lazy"
+                                            decoding="async"
+                                        />
+                                    </div>
+                                </div>
+                                <div class="history-card__gradient" aria-hidden="true"></div>
+                                <div class="history-card__entry history-card__entry--03" data-node-id="220:163">
+                                    <h3 id="history-card-title-03" data-node-id="220:164">
+                                        <span>THE ABSOLUTE:</span>
+                                        <span>FAKER</span>
+                                    </h3>
+                                    <p data-node-id="220:165">
+                                        새로운 전장인 리그오브레전드로 발을 넓힌 T1은 불멸의 슈퍼스타 ‘페이커(Faker)’를 세상에 선보였습니다. 그의 파괴적인 재능과 꺾이지 않는 집념은 구단에 5번의 월드 챔피언십 우승이라는 전무후무한 신화를 안겼습니다. 종목의 한계를 깨부수고 전 세계 디지털 세대를 지배하는 글로벌 넘버원 구단으로의 도약, 그것이 T1이 증명해 낸 절대적인 왕조의 결말입니다.
+                                    </p>
+                                </div>
+                            </article>
+
+                            <article
+                                class="history-card history-card--04"
+                                tabindex="0"
+                                aria-labelledby="history-card-title-04"
+                                data-history-card
+                                data-node-id="227:176"
+                            >
+                                <div class="history-card__media" data-node-id="227:167">
+                                    <div class="history-card__image-motion">
+                                        <img
+                                            src="images/history-card-04.png"
+                                            alt="관중으로 가득 찬 T1 경기장"
+                                            width="2048"
+                                            height="1536"
+                                            loading="lazy"
+                                            decoding="async"
+                                        />
+                                    </div>
+                                </div>
+                                <div class="history-card__gradient" aria-hidden="true"></div>
+                                <div class="history-card__entry history-card__entry--04" data-node-id="227:191">
+                                    <h3 id="history-card-title-04" data-node-id="227:192">
+                                        <span>THE STANDARD:</span>
+                                        <span>T1</span>
+                                    </h3>
+                                    <p data-node-id="227:193">
+                                        <span>T1은 새로운 역사가 시작되는 방향을 제시하는 팀입니다. 압도적인 경기력과 선수들의 끊임없는 열정, 전 세계 팬들과 함께 만들어온 문화는 이제 하나의 팀을 넘어 e스포츠를 상징하는 기준이 되었습니다.</span>
+                                        <span>오늘의 승리에 만족하지 않고 다음 세대가 꿈꿀 무대를 만들어가며, T1은 앞으로도 e스포츠의 새로운 가능성과 다음 시대를 정의합니다.</span>
+                                    </p>
+                                </div>
+                            </article>
+                        </div>
+
+                        <div class="section-history__intro" data-node-id="69:140" hidden aria-hidden="true">
+                            <p class="section-history__eyebrow">THE STANDARD OF ESPORTS</p>
+                            <p>
+                                최초의 날갯짓을 시작한 이래, T1의 역사는 곧 글로벌 이스포츠 산업의
+                                진화 그 자체였습니다.
+                            </p>
+                            <p>
+                                종목과 시대를 불문하고 최고의 자리를 지켜온 집념, 팬들과 함께
+                                호흡하며 쌓아 올린
+                            </p>
+                            <p>
+                                끈끈한 문화는 우리를 단순한 구단을 넘어 하나의 거대한
+                                세계(Kingdom)로 만들었습니다.
+                            </p>
+                            <p>
+                                타협하지 않는 탁월함과 멈추지 않는 도전으로, T1은 오늘도 새로운
+                                세대의 영감이 됩니다.
+                            </p>
+                        </div>
+
+                        <div class="section-history__timeline" hidden aria-hidden="true">
+                            <div class="history-narrative history-narrative--beginning">
+                                <article
+                                    class="history-entry history-entry--beginning"
+                                    data-history-group="beginning"
+                                    data-node-id="69:147"
+                                >
+                                    <h3 data-node-id="69:148">
+                                        <span>THE BEGINNING:</span>
+                                        <span>SKT T1</span>
+                                    </h3>
+                                    <p data-node-id="69:149">
+                                        대한민국 이스포츠의 여명기였던 2004년, SK텔레콤 T1이라는
+                                        위대한 날갯짓이 시작되었습니다. 대기업의 전폭적인 주도 아래
+                                        탄생한 구단은 체계적인 시스템과 압도적인 지원을 바탕으로
+                                        판도를 뒤흔들었습니다. 단순한 게임단을 넘어 대한민국 프로
+                                        스포츠의 새로운 패러다임을 제시하며, 20년 왕조를 향한 거대한
+                                        서막을 올렸습니다.
+                                    </p>
+                                </article>
+
+                                <figure
+                                    class="history-media history-media--founding"
+                                    data-history-group="beginning"
+                                    data-node-id="69:141"
+                                >
+                                    <img
+                                        src="images/history-skt-t1-founding.png"
+                                        alt="2004년 SK텔레콤 T1 창단식 단체 사진"
+                                        width="2704"
+                                        height="1568"
+                                        loading="lazy"
+                                        decoding="async"
+                                        fetchpriority="low"
+                                    />
+                                </figure>
+
+                                <figure
+                                    class="history-media history-media--boxer"
+                                    data-history-group="beginning"
+                                    data-node-id="69:144"
+                                >
+                                    <img
+                                        src="images/history-boxer.png"
+                                        alt="SK텔레콤 T1 유니폼을 입은 임요환"
+                                        width="500"
+                                        height="333"
+                                        loading="lazy"
+                                        decoding="async"
+                                        fetchpriority="low"
+                                    />
+                                </figure>
+                            </div>
+
+                            <div class="history-narrative history-narrative--icon">
+                                <article
+                                    class="history-entry history-entry--icon"
+                                    data-history-group="boxer"
+                                    data-node-id="69:150"
+                                >
+                                    <h3 data-node-id="69:151">
+                                        <span>THE ICON:</span>
+                                        <span>BOXER</span>
+                                    </h3>
+                                    <p data-node-id="69:152">
+                                        ‘황제’ 임요환(BoxeR)의 등장은 스타크래프트 신드롬을 넘어
+                                        이스포츠를 하나의 거대한 주류 문화로 격상시켰습니다. 그의
+                                        천재적인 플레이와 압도적인 스타성은 수백만 팬덤을 광장과
+                                        경기장으로 결집시키는 기폭제가 되었습니다. 한 명의 영웅이
+                                        만든 폭발적인 흥행은 T1이라는 브랜드를 지울 수 없는 시대의
+                                        아이콘으로 각인시켰습니다.
+                                    </p>
+                                </article>
+
+                                <figure
+                                    class="history-media history-media--champions"
+                                    data-history-group="boxer"
+                                    data-node-id="69:146"
+                                >
+                                    <img
+                                        src="images/history-championship-team.png"
+                                        alt="우승 트로피를 들어 올린 T1 선수단"
+                                        width="1600"
+                                        height="1066"
+                                        loading="lazy"
+                                        decoding="async"
+                                        fetchpriority="low"
+                                    />
+                                </figure>
+
+                                <figure
+                                    class="history-media history-media--stage"
+                                    data-history-group="faker"
+                                    data-node-id="69:142"
+                                >
+                                    <img
+                                        src="images/history-stage-trophy.png"
+                                        alt="이스포츠 무대의 T1 선수와 우승 트로피"
+                                        width="1600"
+                                        height="1066"
+                                        loading="lazy"
+                                        decoding="async"
+                                        fetchpriority="low"
+                                    />
+                                </figure>
+                            </div>
+
+                            <div class="history-narrative history-narrative--absolute">
+                                <article
+                                    class="history-entry history-entry--absolute"
+                                    data-history-group="faker"
+                                    data-node-id="69:153"
+                                >
+                                    <h3 data-node-id="69:154">
+                                        <span>THE ABSOLUTE:</span>
+                                        <span>FAKER</span>
+                                    </h3>
+                                    <p data-node-id="69:155">
+                                        새로운 전장인 리그오브레전드로 발을 넓힌 T1은 불멸의
+                                        슈퍼스타 ‘페이커(Faker)’를 세상에 선보였습니다. 그의
+                                        파괴적인 재능과 꺾이지 않는 집념은 구단에 5번의 월드
+                                        챔피언십 우승이라는 전무후무한 신화를 안겼습니다. 종목의
+                                        한계를 깨부수고 전 세계 디지털 세대를 지배하는 글로벌 넘버원
+                                        구단으로의 도약, 그것이 T1이 증명해 낸 절대적인 왕조의
+                                        결말입니다.
+                                    </p>
+                                </article>
+
+                                <figure
+                                    class="history-media history-media--faker"
+                                    data-history-group="faker"
+                                    data-node-id="69:145"
+                                >
+                                    <img
+                                        src="images/history-faker-trophy.png"
+                                        alt="월드 챔피언십 트로피 앞의 페이커"
+                                        width="4096"
+                                        height="2926"
+                                        loading="lazy"
+                                        decoding="async"
+                                        fetchpriority="low"
+                                    />
+                                </figure>
+
+                                <figure
+                                    class="history-media history-media--lineup"
+                                    data-history-group="faker"
+                                    data-node-id="69:143"
+                                >
+                                    <img
+                                        src="images/history-team-lineup.png"
+                                        alt="검은 유니폼을 입고 나란히 선 T1 선수단"
+                                        width="1920"
+                                        height="1080"
+                                        loading="lazy"
+                                        decoding="async"
+                                        fetchpriority="low"
+                                    />
+                                </figure>
+                            </div>
                         </div>
                     </div>
                 </section>
 
-                <section class="banner-marquee banner2-marquee" aria-labelledby="banner2-marquee-title">
-                    <h2 id="banner2-marquee-title" class="banner-marquee__title">Bicycle Travel</h2>
-                    <div class="banner-marquee__viewport">
-                        <ul class="banner-marquee__track banner2-marquee__track">
-                            <li class="banner2-marquee__item">
-                                <div class="banner2-marquee__word"><span>BICYCLE TRAVEL</span></div>
-                                <img class="banner2-marquee__wave" src="images/banner2-wave.svg" alt="" width="187" height="68" />
-                                <div class="banner2-marquee__happy">
-                                    <div class="banner2-marquee__happy-inner">
-                                        <img src="images/banner2-happy.svg" alt="" width="155" height="54" />
-                                        <span>HAPPY</span>
-                                    </div>
-                                </div>
-                                <div class="banner2-marquee__loop">
-                                    <img src="images/banner2-loop.svg" alt="" width="38" height="83" />
-                                </div>
-                                <img class="banner2-marquee__sun" src="images/banner2-sun.svg" alt="" width="112" height="112" />
-                            </li>
-                            <li class="banner2-marquee__item" aria-hidden="true">
-                                <div class="banner2-marquee__word"><span>BICYCLE TRAVEL</span></div>
-                                <img class="banner2-marquee__wave" src="images/banner2-wave.svg" alt="" width="187" height="68" />
-                                <div class="banner2-marquee__happy">
-                                    <div class="banner2-marquee__happy-inner">
-                                        <img src="images/banner2-happy.svg" alt="" width="155" height="54" />
-                                        <span>HAPPY</span>
-                                    </div>
-                                </div>
-                                <div class="banner2-marquee__loop">
-                                    <img src="images/banner2-loop.svg" alt="" width="38" height="83" />
-                                </div>
-                                <img class="banner2-marquee__sun" src="images/banner2-sun.svg" alt="" width="112" height="112" />
-                            </li>
-                            <li class="banner2-marquee__item" aria-hidden="true">
-                                <div class="banner2-marquee__word"><span>BICYCLE TRAVEL</span></div>
-                                <img class="banner2-marquee__wave" src="images/banner2-wave.svg" alt="" width="187" height="68" />
-                                <div class="banner2-marquee__happy">
-                                    <div class="banner2-marquee__happy-inner">
-                                        <img src="images/banner2-happy.svg" alt="" width="155" height="54" />
-                                        <span>HAPPY</span>
-                                    </div>
-                                </div>
-                                <div class="banner2-marquee__loop">
-                                    <img src="images/banner2-loop.svg" alt="" width="38" height="83" />
-                                </div>
-                                <img class="banner2-marquee__sun" src="images/banner2-sun.svg" alt="" width="112" height="112" />
-                            </li>
-                        </ul>
+                <section
+                    id="achievement"
+                    class="section-achievement"
+                    aria-labelledby="achievement-title"
+                    data-achievement-section
+                    data-scroll-page="achievement"
+                    data-node-id="69:72"
+                >
+                    <h2 id="achievement-title" class="sr-only">T1 Career Achievements</h2>
+
+                    <div class="section-achievement__video-stage" aria-hidden="true">
+                        <video
+                            class="section-achievement__video"
+                            src="images/faker.mp4"
+                            poster="images/career-achievements-poster.png"
+                            width="1920"
+                            height="1080"
+                            autoplay
+                            muted
+                            loop
+                            playsinline
+                            preload="auto"
+                            tabindex="-1"
+                        ></video>
+                    </div>
+
+                    <div class="section-achievement__content">
+                        <p
+                            class="achievement-heading achievement-heading--outline"
+                            data-node-id="69:82"
+                        >
+                            SKT T1
+                        </p>
+                        <p class="achievement-heading achievement-heading--t1" data-node-id="69:83">
+                            T1
+                        </p>
+                        <p
+                            class="achievement-heading achievement-heading--faker"
+                            data-node-id="69:84"
+                        >
+                            FAKER
+                        </p>
+                        <p
+                            class="achievement-heading achievement-heading--name"
+                            data-node-id="69:85"
+                        >
+                            LEE SANG HYUK
+                        </p>
+
+                        <p class="achievement-number achievement-number--lck" data-node-id="69:78">
+                            10
+                        </p>
+                        <p class="achievement-label achievement-label--lck" data-node-id="69:80">
+                            LCK CHAMPION
+                        </p>
+
+                        <p class="achievement-number achievement-number--msi" data-node-id="69:79">
+                            2
+                        </p>
+                        <p class="achievement-label achievement-label--msi" data-node-id="69:81">
+                            MSI CHAMPION
+                        </p>
+
+                        <p
+                            class="achievement-number achievement-number--world"
+                            data-node-id="69:77"
+                        >
+                            6
+                        </p>
+                        <p class="achievement-label achievement-label--world" data-node-id="69:76">
+                            WORLD CHAMPION
+                        </p>
                     </div>
                 </section>
-            </main>
-            <footer id="footer" class="footer">
-                <img class="footer__background" src="images/footer-background.svg" alt="" width="1920" height="431" />
 
-                <div class="inner footer__inner">
-                    <nav class="footer__legal" aria-label="정책 및 약관">
-                        <ul class="footer__legal-list">
-                            <li><a href="#">회사소개</a></li>
-                            <li class="footer__legal-divider" aria-hidden="true"><img src="images/footer-divider-small.svg" alt="" width="1" height="13" /></li>
-                            <li><a href="#">이용약관</a></li>
-                            <li class="footer__legal-divider" aria-hidden="true"><img src="images/footer-divider-small.svg" alt="" width="1" height="13" /></li>
-                            <li><a href="#">이메일무단수집거부</a></li>
-                            <li class="footer__legal-divider" aria-hidden="true"><img src="images/footer-divider-small.svg" alt="" width="1" height="13" /></li>
-                            <li><a href="#">개인정보처리방침</a></li>
-                        </ul>
-                    </nav>
+                <section
+                    id="brand-impact"
+                    class="section-brand-impact"
+                    aria-labelledby="brand-impact-title"
+                    data-brand-impact-section
+                    data-scroll-page="brand-impact"
+                    data-node-id="69:109"
+                >
+                    <div
+                        class="brand-impact-stats"
+                        data-brand-impact-reveal="stats"
+                        data-node-id="69:115"
+                    >
+                        <article
+                            class="brand-impact-stat brand-impact-stat--01"
+                            data-node-id="69:116"
+                        >
+                            <p class="brand-impact-stat__description" data-node-id="69:117">
+                                <span>(accumulated live viewership records</span>
+                                <span>for a single high-profile match.)</span>
+                            </p>
+                            <p
+                                class="brand-impact-stat__value"
+                                aria-label="25 million plus"
+                                data-node-id="69:118"
+                            >
+                                <span
+                                    class="brand-impact-stat__number count-number"
+                                    aria-hidden="true"
+                                    data-target="25"
+                                    >25</span
+                                ><span
+                                    class="brand-impact-stat__suffix count-suffix"
+                                    aria-hidden="true"
+                                    >m+</span
+                                >
+                            </p>
+                        </article>
 
-                    <img class="footer__horizontal-divider" src="images/footer-divider-horizontal.svg" alt="" width="1480" height="1" />
+                        <article
+                            class="brand-impact-stat brand-impact-stat--02"
+                            data-node-id="69:119"
+                        >
+                            <p class="brand-impact-stat__description" data-node-id="69:120">
+                                <span>(global blue-chip enterprises partnering</span>
+                                <span>for strategic digital sponsorship)</span>
+                            </p>
+                            <p
+                                class="brand-impact-stat__value"
+                                aria-label="40 plus"
+                                data-node-id="69:121"
+                            >
+                                <span
+                                    class="brand-impact-stat__number count-number"
+                                    aria-hidden="true"
+                                    data-target="40"
+                                    >40</span
+                                ><span
+                                    class="brand-impact-stat__suffix count-suffix"
+                                    aria-hidden="true"
+                                    >+</span
+                                >
+                            </p>
+                        </article>
 
-                    <div class="footer__main">
-                        <section class="footer__support" aria-labelledby="footer-support-title">
-                            <div class="footer__support-contact">
-                                <h2 id="footer-support-title">고객센터</h2>
-                                <a href="tel:02-3446-4567" class="footer__phone">02-3446-4567</a>
-                            </div>
-                            <div class="footer__support-links">
-                                <a href="#">자주 묻는 질문</a>
-                                <a href="#">Q&amp;A</a>
-                            </div>
-                        </section>
+                        <article
+                            class="brand-impact-stat brand-impact-stat--03"
+                            data-node-id="69:122"
+                        >
+                            <p class="brand-impact-stat__description" data-node-id="69:123">
+                                <span>(passionate loyalty driving unprecedented</span>
+                                <span>premium membership engagement)</span>
+                            </p>
+                            <p
+                                class="brand-impact-stat__value"
+                                aria-label="100 percent"
+                                data-node-id="69:124"
+                            >
+                                <span
+                                    class="brand-impact-stat__number count-number"
+                                    aria-hidden="true"
+                                    data-target="100"
+                                    >100</span
+                                ><span
+                                    class="brand-impact-stat__suffix count-suffix"
+                                    aria-hidden="true"
+                                    >%</span
+                                >
+                            </p>
+                        </article>
 
-                        <img class="footer__vertical-divider" src="images/footer-divider-vertical.svg" alt="" width="1" height="210" />
-
-                        <section class="footer__notice" aria-labelledby="footer-notice-title">
-                            <div class="footer__notice-content">
-                                <div class="footer__notice-header">
-                                    <h2 id="footer-notice-title">공지사항</h2>
-                                    <a href="#">more +</a>
-                                </div>
-                                <ul class="footer__notice-list">
-                                    <li>
-                                        <a href="#">스트라이더 참가 결제 진행방법</a>
-                                        <time datetime="2024-08-15">2024.08.15</time>
-                                    </li>
-                                    <li>
-                                        <a href="#">케이벨로 회원가입 및 이용절차 안내</a>
-                                        <time datetime="2024-08-15">2024.08.15</time>
-                                    </li>
-                                    <li>
-                                        <a href="#">케이벨로 신규 홈페이지 시범 서비스 운영</a>
-                                        <time datetime="2024-08-15">2024.08.15</time>
-                                    </li>
-                                </ul>
-                            </div>
-                            <p class="footer__copyright">CopyRight&nbsp; (주)엠비씨아카데미. All Rights Reserved</p>
-                        </section>
-
-                        <img class="footer__vertical-divider" src="images/footer-divider-vertical.svg" alt="" width="1" height="210" />
-
-                        <section class="footer__company" aria-labelledby="footer-company-title">
-                            <div class="footer__company-info">
-                                <div class="footer__company-header">
-                                    <h2 id="footer-company-title">(주)엠비씨아카데미</h2>
-                                    <img src="images/footer-divider-small.svg" alt="" width="1" height="13" />
-                                    <p>대표이사 : 변서은</p>
-                                </div>
-                                <address>
-                                    서울특별시 강동구 천중로 8-1 케이벨로빌딩 2층(본사),<br />
-                                    지하1층(교육센터)
-                                </address>
-                            </div>
-                            <div class="footer__company-meta">
-                                <p>사업자등록번호 : 1234-567-8897</p>
-                                <div class="footer__company-contact">
-                                    <a href="mailto:help@naver.com">E-mail :&nbsp; help@naver.com</a>
-                                    <img src="images/footer-divider-contact.svg" alt="" width="1" height="13" />
-                                    <p>FAX: 02-3446-4567</p>
-                                </div>
-                            </div>
-                        </section>
+                        <article
+                            class="brand-impact-stat brand-impact-stat--04"
+                            data-node-id="69:125"
+                        >
+                            <p class="brand-impact-stat__description" data-node-id="69:126">
+                                <span>(total digital content viewership and live streaming</span>
+                                <span>engagements per season)</span>
+                            </p>
+                            <p
+                                class="brand-impact-stat__value"
+                                aria-label="200 million plus"
+                                data-node-id="69:127"
+                            >
+                                <span
+                                    class="brand-impact-stat__number count-number"
+                                    aria-hidden="true"
+                                    data-target="200"
+                                    >200</span
+                                ><span
+                                    class="brand-impact-stat__suffix brand-impact-stat__suffix--m count-suffix"
+                                    aria-hidden="true"
+                                    >m</span
+                                ><span
+                                    class="brand-impact-stat__suffix brand-impact-stat__suffix--plus count-suffix"
+                                    aria-hidden="true"
+                                    >+</span
+                                >
+                            </p>
+                        </article>
                     </div>
-                </div>
-            </footer>
+
+                    <div class="brand-impact-collage" aria-label="T1 brand impact gallery">
+                        <figure
+                            class="brand-impact-media brand-impact-media--01"
+                            data-brand-impact-reveal="media"
+                            data-node-id="69:128"
+                        >
+                            <img
+                                src="images/brand-impact-media-01.png"
+                                alt="팬들과 인사하는 T1 페이커"
+                                width="1319"
+                                height="2216"
+                                loading="lazy"
+                                decoding="async"
+                            />
+                        </figure>
+                        <figure
+                            class="brand-impact-media brand-impact-media--02"
+                            data-brand-impact-reveal="media"
+                            data-node-id="69:129"
+                        >
+                            <img
+                                src="images/brand-impact-media-02.png"
+                                alt="T1 홈그라운드 대형 플래그와 관중"
+                                width="1205"
+                                height="1277"
+                                loading="lazy"
+                                decoding="async"
+                            />
+                        </figure>
+                        <figure
+                            class="brand-impact-media brand-impact-media--03"
+                            data-brand-impact-reveal="media"
+                            data-node-id="86:112"
+                        >
+                            <img
+                                src="images/brand-impact-media-03.png"
+                                alt="메르세데스-AMG 차량 옆의 페이커"
+                                width="1324"
+                                height="1093"
+                                loading="lazy"
+                                decoding="async"
+                            />
+                        </figure>
+                        <figure
+                            class="brand-impact-media brand-impact-media--04"
+                            data-brand-impact-reveal="media"
+                            data-node-id="86:109"
+                        >
+                            <img
+                                src="images/brand-impact-media-04.png"
+                                alt="T1 Red Edition 카드"
+                                width="1292"
+                                height="528"
+                                loading="lazy"
+                                decoding="async"
+                            />
+                        </figure>
+                        <figure
+                            class="brand-impact-media brand-impact-media--05"
+                            data-brand-impact-reveal="media"
+                            data-node-id="86:110"
+                        >
+                            <img
+                                src="images/brand-impact-media-05.png"
+                                alt="T1 선수단 Red Bull 캠페인"
+                                width="1193"
+                                height="898"
+                                loading="lazy"
+                                decoding="async"
+                            />
+                        </figure>
+                        <figure
+                            class="brand-impact-media brand-impact-media--06"
+                            data-brand-impact-reveal="media"
+                            data-node-id="86:111"
+                        >
+                            <img
+                                src="images/brand-impact-media-06.png"
+                                alt="T1을 응원하는 경기장 관중"
+                                width="1288"
+                                height="1088"
+                                loading="lazy"
+                                decoding="async"
+                            />
+                        </figure>
+                    </div>
+
+                    <div
+                        class="brand-impact-introduction"
+                        data-brand-impact-reveal="lower"
+                        data-node-id="69:130"
+                    >
+                        <p class="brand-impact-introduction__label" data-node-id="69:131">
+                            service
+                        </p>
+                        <h2
+                            id="brand-impact-title"
+                            class="brand-impact-introduction__title"
+                            data-node-id="69:132"
+                        >
+                            BEYOND ERAS. BEYOND ESPORTS.
+                        </h2>
+                        <p class="brand-impact-introduction__body">
+                            <span>우리는 단순히 게임에서 이기는 팀을 넘어,</span>
+                            <span>전 세계 MZ세대의 문화를 주도하고 트렌드를</span>
+                            <span>혁신하는 글로벌 넘버원 디지털 엔터테인먼트</span>
+                            <span>브랜드입니다.</span>
+                        </p>
+                    </div>
+
+                    <a
+                        class="brand-impact-action"
+                        href="https://www.t1.gg/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        data-brand-impact-reveal="lower"
+                        data-node-id="69:133"
+                        >EXPLORE T1 BRAND</a
+                    >
+
+                    <p
+                        class="brand-impact-copy"
+                        data-brand-impact-reveal="lower"
+                        data-node-id="69:134"
+                    >
+                        <span>DRIVEN BY PRESTIGE,</span>
+                        <span>FANDOM AND ABSOLUT E DOMINANCE</span>
+                    </p>
+                </section>
+
+                <section
+                    id="global-partners"
+                    class="section-global-partners"
+                    aria-labelledby="global-partners-title"
+                    data-global-partners-section
+                    data-scroll-page="global-partners"
+                    data-node-id="69:184"
+                >
+                    <h2
+                        id="global-partners-title"
+                        class="global-partners-title global-partners-title--left"
+                        data-node-id="69:187"
+                    >
+                        <span>GLOBAL</span>
+                        <span>ALLIANCE</span>
+                    </h2>
+
+                    <p
+                        class="global-partners-title global-partners-title--right"
+                        data-node-id="69:188"
+                        aria-hidden="true"
+                    >
+                        <span>THE <strong>T1</strong></span>
+                        <span>PARTNERS</span>
+                    </p>
+
+                    <div
+                        class="global-partners-formula"
+                        data-partner-formula-axis
+                        data-node-id="69:189"
+                        aria-hidden="true"
+                    >
+                        <div class="global-partners-formula__term" data-node-id="69:190">
+                            <span class="global-partners-formula__bracket" data-node-id="69:191"
+                                >(</span
+                            >
+                            <p
+                                class="global-partners-formula__keywords global-partners-formula__keywords--left"
+                                data-node-id="69:192"
+                            >
+                                <span>synergy</span>
+                                <span>innovation</span>
+                                <span>culture</span>
+                            </p>
+                        </div>
+                        <div
+                            class="global-partners-formula__term global-partners-formula__term--right"
+                            data-node-id="69:193"
+                        >
+                            <p class="global-partners-formula__keywords" data-node-id="69:194">
+                                <span>global</span>
+                                <span>blue-chip</span>
+                                <span>brands</span>
+                            </p>
+                            <span class="global-partners-formula__bracket" data-node-id="69:195"
+                                >)</span
+                            >
+                        </div>
+                    </div>
+
+                    <div
+                        class="global-partners-track-viewport"
+                        role="region"
+                        aria-label="글로벌 파트너 스폰서 트랙"
+                        aria-describedby="global-partners-track-help"
+                        data-sponsor-track
+                        data-node-id="69:196"
+                    >
+                        <p id="global-partners-track-help" class="sr-only">
+                            트랙에 포커스한 뒤 위아래 방향키를 사용하면 파트너를 한 항목씩 탐색할 수
+                            있습니다.
+                        </p>
+                        <ol class="global-partners-track" data-sponsor-list></ol>
+                        <p
+                            class="sr-only"
+                            aria-live="polite"
+                            aria-atomic="true"
+                            data-sponsor-status
+                        ></p>
+                    </div>
+
+                    <p class="global-partners-description" data-node-id="69:202">
+                        <span><strong>T1</strong>의 모든 도전과 위대한 성취 뒤에는</span>
+                        <span>세계 최고의 글로벌 파트너사들이 함께하고 있습니다.</span>
+                        <span>우리는 단순한 후원 관계를 넘어, 브랜드의 한계를 깨부수고</span>
+                        <span
+                            >디지털 세대의 새로운 문화를 창조하는 강력한 시너지를 공유합니다.</span
+                        >
+                        <span>글로벌 이스포츠 비즈니스의 미래를 확인해 보세요.</span>
+                    </p>
+                </section>
+
+                <section
+                    id="apparel"
+                    class="section-apparel"
+                    aria-labelledby="apparel-title"
+                    data-apparel-section
+                    data-scroll-page="apparel"
+                    data-node-id="69:203"
+                >
+                    <div class="apparel-sticky-stage" data-apparel-stage>
+                        <div class="apparel-background" aria-hidden="true"></div>
+
+                        <div class="apparel-introduction apparel__intro" data-apparel-introduction>
+                            <h2
+                                id="apparel-title"
+                                class="apparel-introduction__title"
+                                data-node-id="69:218"
+                            >
+                                APPAREL
+                            </h2>
+                            <p class="apparel-introduction__body" data-node-id="69:219">
+                                T1의 미니멀한 그래픽 실루엣과 감각적인 디테일이 결합하여 세련된
+                                라이프스타일 웨어로 재탄생했습니다. 이스포츠 특유의 속도감 있는
+                                각도와 절제된 톤앤매너로 설계되어, 언제 어디서든 당신의 정체성을
+                                가장 스타일리시하게 증명해 줍니다.
+                            </p>
+                        </div>
+
+                        <button
+                            class="apparel-action apparel__action"
+                            type="button"
+                            data-apparel-action
+                            data-node-id="69:217"
+                        >
+                            EXPLORE
+                        </button>
+
+                        <div class="apparel__media-viewport" data-apparel-media-viewport>
+                            <div
+                                class="apparel-media-canvas apparel__media-canvas"
+                                data-apparel-media-canvas
+                                aria-label="T1 Apparel 컬렉션"
+                            >
+                                <ol class="apparel-media-list" data-apparel-media-list></ol>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section
+                    id="membership"
+                    class="section-membership"
+                    aria-labelledby="membership-title"
+                    data-membership-section
+                    data-scroll-page="membership"
+                    data-node-id="99:120"
+                >
+                    <div class="membership-canvas" data-membership-canvas>
+                        <div class="membership-reflection-surface" aria-hidden="true"></div>
+
+                        <div class="membership-horizon-glow" aria-hidden="true">
+                            <img src="images/membership-horizon-glow.svg" alt="" />
+                        </div>
+
+                        <div class="membership-reflection-cards" aria-hidden="true">
+                            <ol
+                                class="membership-card-list membership-card-list--reflection"
+                                data-membership-reflection-list
+                            ></ol>
+                        </div>
+
+                        <div class="membership-reflection-fade" aria-hidden="true"></div>
+
+                        <div class="membership-primary-cards" data-node-id="107:141">
+                            <ol
+                                class="membership-card-list membership-card-list--primary"
+                                aria-label="T1 Membership 콘텐츠"
+                                data-membership-primary-list
+                            ></ol>
+                        </div>
+
+                        <p
+                            class="membership-label"
+                            data-membership-text-entry
+                            data-node-id="103:181"
+                        >
+                            T1 Membership
+                        </p>
+
+                        <div class="membership-introduction" data-node-id="103:192">
+                            <h2
+                                id="membership-title"
+                                class="membership-introduction__title"
+                                data-membership-text-entry
+                                data-node-id="102:132"
+                            >
+                                <span>EVERY <strong>T1</strong> MOMENT</span>
+                                <span>ALL IN ONE PLACE</span>
+                            </h2>
+
+                            <p
+                                class="membership-introduction__body"
+                                data-membership-text-entry
+                                data-node-id="102:134"
+                            >
+                                <span>경기 안팎에서 이어지는 T1의 모든 순간을 만나보세요.</span>
+                                <span
+                                    >멤버 전용 이벤트부터 새로운 영상까지 한곳에서 가장 먼저 경험할
+                                    수 있습니다.</span
+                                >
+                            </p>
+
+                            <button
+                                class="membership-action"
+                                type="button"
+                                aria-label="T1 Membership 둘러보기"
+                                data-membership-text-entry
+                                data-node-id="101:125"
+                            >
+                                EXPLORE
+                            </button>
+                        </div>
+                    </div>
+                </section>
+
+                <footer id="site-footer" class="section-footer" data-node-id="103:196">
+                    <div class="section-footer__stage" data-footer-stage>
+                        <div class="section-footer__surface" aria-hidden="true"></div>
+
+                        <div class="section-footer__content" data-node-id="110:122">
+                            <div class="section-footer__main" data-node-id="110:123">
+                                <div class="section-footer__brand" data-node-id="110:124">
+                                    <p class="section-footer__eyebrow" data-node-id="112:122">
+                                        T1 / GLOBAL ESPORTS
+                                    </p>
+                                    <p class="section-footer__statement" data-node-id="112:123">
+                                        <span>TO INSPIRE</span>
+                                        <span>THE BEST GAME IN YOU.</span>
+                                    </p>
+                                </div>
+
+                                <div
+                                    class="section-footer__groups"
+                                    aria-label="Footer information"
+                                    data-node-id="110:125"
+                                >
+                                    <section
+                                        class="section-footer__group section-footer__group--explore"
+                                        data-node-id="112:124"
+                                    >
+                                        <h2 data-node-id="112:125">EXPLORE</h2>
+                                        <ul data-node-id="112:126">
+                                            <li>ABOUT T1</li>
+                                            <li>CONTACT</li>
+                                        </ul>
+                                    </section>
+
+                                    <section
+                                        class="section-footer__group section-footer__group--legal"
+                                        data-node-id="112:127"
+                                    >
+                                        <h2 data-node-id="112:128">LEGAL</h2>
+                                        <ul data-node-id="112:129">
+                                            <li>LEGAL TERMS</li>
+                                            <li>PRIVACY POLICY</li>
+                                            <li>COOKIE POLICY</li>
+                                        </ul>
+                                    </section>
+
+                                    <section
+                                        class="section-footer__group section-footer__group--inquiries"
+                                        data-node-id="113:122"
+                                    >
+                                        <h2 data-node-id="113:123">INQUIRIES</h2>
+                                        <ul data-node-id="113:124">
+                                            <li>INFO@T1.GG</li>
+                                            <li>T1.GG</li>
+                                        </ul>
+                                    </section>
+                                </div>
+                            </div>
+
+                            <div
+                                class="section-footer__divider"
+                                aria-hidden="true"
+                                data-node-id="110:126"
+                            ></div>
+
+                            <div class="section-footer__bottom" data-node-id="110:127">
+                                <p data-node-id="113:125">
+                                    © 2026 SK TELECOM CS T1 CO. ALL RIGHTS RESERVED.
+                                </p>
+                                <p data-node-id="113:126">
+                                    BASED ON T1.GG&nbsp;&nbsp;/&nbsp;&nbsp;TOMMY.C
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="section-footer__media" aria-hidden="true" data-node-id="107:183">
+                            <img src="images/footer-background.png" alt="" />
+                        </div>
+                    </div>
+                </footer>
+            </main>
         </div>
-        <script src="https://cdn.jsdelivr.net/npm/swiper@14.0.6/swiper-bundle.min.js"></script>
-        <script src="js/main.js"></script>
     </body>
 </html>
